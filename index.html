@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate an Image</title>
+</head>
+<body>
+    <h1>Generate an Image</h1>
+    <form method="POST">
+        <label for="theme">Theme:</label>
+        <input type="text" id="theme" name="theme"><br><br>
+        <label for="prompt">Prompt:</label>
+        <input type="text" id="prompt" name="prompt"><br><br>
+        <label for="include_negative">Include Negative Prompt?</label>
+        <input type="checkbox" id="include_negative" name="include_negative"><br><br>
+        <label for="negative_prompt">Negative Prompt:</label>
+        <input type="text" id="negative_prompt" name="negative_prompt" value="improper"><br><br>
+        <button type="submit">Generate Image</button>
+    </form>
+    <h2>Generated Image:</h2>
+    {% if error %}
+        <p style="color:red;">Error: {{ error }}</p>
+    {% endif %}
+    {% if image_url %}
+        <img src="{{ image_url }}" alt="Generated Image" style="width:100%;">
+    {% endif %}
+</body>
+</html>
